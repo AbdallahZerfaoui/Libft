@@ -5,9 +5,9 @@
 #include <ctype.h>
 #include <limits.h>
 
-// if you use includes : gcc test_lib.c -I./includes -L. -lft -o test_lib
-// if the libft.h is in the root : gcc test_lib.c -I. -L. -lft -o test_lib
-// my favorite way to compile so far : clear && gcc test_lib.c -I. -L. -lft -o test_lib && ./test_lib
+// if you use includes : gcc test_libft.c -I./includes -L. -lft -o test_libft
+// if the libft.h is in the root : gcc test_libft.c -I. -L. -lft -o test_libft
+// my favorite way to compile so far : clear && gcc test_libft.c -I. -L. -lft -o test_libft && ./test_libft
 
 // Function to print in color
 void print_result(int result) {
@@ -104,7 +104,7 @@ int main()
     // Test ft_isprint
     // 9 is the tab character
     print_separator("Testing ft_isprint");
-    int test_cases_print[] = {'A', 'z', 'm', '1', '#', ' ', 0, -1, 'a', 'Z', 127, 9, 30, '/n'};
+    int test_cases_print[] = {'A', 'z', 'm', '1', '#', ' ', 0, -1, 'a', 'Z', 127, 9, 30, '\n'};
     int num_tests_print = sizeof(test_cases_print) / sizeof(test_cases_print[0]);
 
     for (int i = 0; i < num_tests_print; i++) {
