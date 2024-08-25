@@ -115,6 +115,7 @@ gcc main.c libft.a -o test_libft
 For more thorough testing, consider using a unit testing framework like Criterion.
 
 ## Project Structure 
+```bash
 libft/
 │
 ├── Code/
@@ -126,9 +127,10 @@ libft/
 ├── includes/
 │   └── libft.h
 │
+├── test_libft.c
 ├── Makefile
 └── README.md
-
+````
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
