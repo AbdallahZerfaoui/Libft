@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-int atoi(const char *str)
+int ft_atoi(const char *str)
 {
     int res = 0;
     int sign = 1;

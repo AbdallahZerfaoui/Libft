@@ -1,39 +1,25 @@
 #include <unistd.h>
 
-char *ft_itoa(int value, char *buffer, int base)
+char *ft_itoa(int value)
 {
-    char *ptr;
-    char *ptr1;
-    char *ptr2;
-    unsigned long nbr;
+    static char buffer[12];
+    char *end_ptr;
+    int sign;
 
-    ptr = buffer;
-    if (base < 2 || base > 36)
+    end_ptr = &buffer[11];
+    *end_ptr = '\0';
+    sign = (value < 0) ? -1 : 1;
+    if (value == 0)
     {
-        *ptr = '\0';
-        return (ptr);
+        *--end_ptr = '0';
+        return (end_ptr);
     }
-    if (base != 10 && value < 0)
-        value = -value;
-    nbr = value;
-    ptr1 = ptr;
-    do
+    while (value != 0)
     {
-        *ptr++ = "zyxwvutsrqponmlkjihgfedcba9876543210123456789abcdefghijklmnopqrstuvwxyz"[35 + nbr % base];
-        nbr /= base;
-    } while (nbr);
-    if (value < 0 && base == 10)
-        *ptr++ = '-';
-    *ptr-- = '\0';
-    ptr2 = ptr;
-    while (ptr1 < ptr2)
-    {
-        char tmp;
-        tmp = *ptr1;
-        *ptr1 = *ptr2;
-        *ptr2 = tmp;
-        ptr1++;
-        ptr2--;
+        *--end_ptr = '0' + (value % 10) * sign;
+        value /= 10;
     }
-    return (buffer);
+    if (sign == -1)
+        *--end_ptr = '-';
+    return (end_ptr);
 }
