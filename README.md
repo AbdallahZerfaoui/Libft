@@ -97,7 +97,7 @@ ft_lstmap
 ````
 
 ## Testing
-To test individual functions, you can write test cases in the main.c file. Each function should be thoroughly tested with a variety of inputs, including edge cases.
+To test individual functions, you can write test cases in the main file "test_libft.c". Each function should be thoroughly tested with a variety of inputs, including edge cases.
 ````bash
 int main(void)
 {
@@ -113,3 +113,28 @@ gcc main.c libft.a -o test_libft
 ./test_libft
 ````
 For more thorough testing, consider using a unit testing framework like Criterion.
+
+## Project Structure 
+libft/
+│
+├── Code/
+│   ├── ft_memset.c
+│   ├── ft_bzero.c
+│   ├── ft_memcpy.c
+│   ├── ...
+│
+├── includes/
+│   └── libft.h
+│
+├── Makefile
+└── README.md
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+### How to Customize
+- **Update the repository URL**: Replace `your-username` with your GitHub username.
+- **Add more details**: Depending on the exact functions you implement or additional features, you can expand on the descriptions and testing instructions.
+- **Contributing Guidelines**: If you have specific guidelines for contributing, you can add a `CONTRIBUTING.md` file and reference it in the README.
+
+This README should provide a clear and professional introduction to your Libft project on GitHub.
