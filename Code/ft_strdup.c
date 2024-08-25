@@ -1,6 +1,10 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+// This function returns a pointer to a null-terminated byte string, 
+// which is a duplicate of the string pointed to by s. 
+// The memory obtained is done dynamically using malloc
+
 char	*ft_strdup(const char *s)
 {
     char	*ptr;
