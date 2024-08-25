@@ -132,24 +132,13 @@ int main()
         printf("Test %d: ft_strlen(%s) == strlen(%s) -> ", i + 1, s, s);
         print_result(expected == actual);
     }
+    // Test ft_strlcpy
+    // Test ft_strlcat
+    // Test ft_toupper
+    // Test ft_tolower
     // Test ft_strcmp
-    print_separator("Testing ft_strcmp");
-    char *test_cases_strcmp_s1[] = {"Hello", "World", "123", " ", "", "This is a test", "Another test"};
-    char *test_cases_strcmp_s2[] = {"Hello", "World", "777", "", " ", "This is a", "Anothe test"};
-    int num_tests_strcmp = sizeof(test_cases_strcmp_s1) / sizeof(test_cases_strcmp_s1[0]);
-
-    for (int i = 0; i < num_tests_strcmp; i++) {
-        char *s1 = test_cases_strcmp_s1[i];
-        char *s2 = test_cases_strcmp_s2[i];
-        int actual = ft_strcmp(s1, s2);
-        int expected = strcmp(s1, s2);
-        
-        // printf("Test %d: ft_strcmp(%s, %s) -> ", i + 1, s1, s2);
-        // printf("Expected: %d, Actual: %d\n", expected, actual);
-        printf("Test %d: ft_strcmp(%s, %s) == strcmp(%s, %s) -> ", i + 1, s1, s2, s1, s2);
-        print_result(expected == actual);
-    }
-
+    // Test ft_strchr
+    // Test ft_strrchr
     // Test ft_strncmp
     print_separator("Testing ft_strncmp");
     struct {
@@ -184,6 +173,28 @@ int main()
                test_cases_strncmp[i].s1, test_cases_strncmp[i].s2, test_cases_strncmp[i].n);
         print_result(expected == actual);
     }
+    // Test ft_strnstr
+    // Test ft_atoi
+    // Test ft_strdup
+    // Test ft_strcmp
+    print_separator("Testing ft_strcmp");
+    char *test_cases_strcmp_s1[] = {"Hello", "World", "123", " ", "", "This is a test", "Another test"};
+    char *test_cases_strcmp_s2[] = {"Hello", "World", "777", "", " ", "This is a", "Anothe test"};
+    int num_tests_strcmp = sizeof(test_cases_strcmp_s1) / sizeof(test_cases_strcmp_s1[0]);
+
+    for (int i = 0; i < num_tests_strcmp; i++) {
+        char *s1 = test_cases_strcmp_s1[i];
+        char *s2 = test_cases_strcmp_s2[i];
+        int actual = ft_strcmp(s1, s2);
+        int expected = strcmp(s1, s2);
+        
+        // printf("Test %d: ft_strcmp(%s, %s) -> ", i + 1, s1, s2);
+        // printf("Expected: %d, Actual: %d\n", expected, actual);
+        printf("Test %d: ft_strcmp(%s, %s) == strcmp(%s, %s) -> ", i + 1, s1, s2, s1, s2);
+        print_result(expected == actual);
+    }
+
+
 
     return 0;
 }
