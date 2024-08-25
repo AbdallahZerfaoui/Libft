@@ -34,3 +34,14 @@ To use the library in your own projects, simply clone this repository and includ
 ```bash
 git clone https://github.com/your-username/libft.git
 cd libft
+```
+## Usage
+include the libft.h header in your C source files:
+```bash
+#include "libft.h"
+```
+Link the compiled library when building your project:
+
+````bash
+gcc your_file.c -L. -lft -o your_program
+````
