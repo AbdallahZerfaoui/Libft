@@ -95,3 +95,48 @@ ft_lstadd
 ft_lstiter
 ft_lstmap
 ````
+
+## Testing
+To test individual functions, you can write test cases in the main file "test_libft.c". Each function should be thoroughly tested with a variety of inputs, including edge cases.
+````bash
+int main(void)
+{
+    // Example test for ft_strlen
+    printf("Length of 'Hello' is %zu\n", ft_strlen("Hello")); // Expected: 5
+    return 0;
+}
+````
+Compile and run your tests:
+
+````bash
+gcc main.c libft.a -o test_libft
+./test_libft
+````
+For more thorough testing, consider using a unit testing framework like Criterion.
+
+## Project Structure 
+```bash
+libft/
+│
+├── Code/
+│   ├── ft_memset.c
+│   ├── ft_bzero.c
+│   ├── ft_memcpy.c
+│   ├── ...
+│
+├── includes/
+│   └── libft.h
+│
+├── test_libft.c
+├── Makefile
+└── README.md
+````
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+### How to Customize
+- **Update the repository URL**: Replace `your-username` with your GitHub username.
+- **Add more details**: Depending on the exact functions you implement or additional features, you can expand on the descriptions and testing instructions.
+- **Contributing Guidelines**: If you have specific guidelines for contributing, you can add a `CONTRIBUTING.md` file and reference it in the README.
+
+This README should provide a clear and professional introduction to your Libft project on GitHub.
