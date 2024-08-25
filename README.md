@@ -95,3 +95,21 @@ ft_lstadd
 ft_lstiter
 ft_lstmap
 ````
+
+## Testing
+To test individual functions, you can write test cases in the main.c file. Each function should be thoroughly tested with a variety of inputs, including edge cases.
+````bash
+int main(void)
+{
+    // Example test for ft_strlen
+    printf("Length of 'Hello' is %zu\n", ft_strlen("Hello")); // Expected: 5
+    return 0;
+}
+````
+Compile and run your tests:
+
+````bash
+gcc main.c libft.a -o test_libft
+./test_libft
+````
+For more thorough testing, consider using a unit testing framework like Criterion.
