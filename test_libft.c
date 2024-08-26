@@ -133,12 +133,17 @@ int main()
         print_result(expected == actual);
     }
     // Test ft_strlcpy
+    print_separator("Testing ft_strlcpy");
     // Test ft_strlcat
+    print_separator("Testing ft_strlcat");
     // Test ft_toupper
+    print_separator("Testing ft_toupper");
     // Test ft_tolower
-    // Test ft_strcmp
+    print_separator("Testing ft_tolower");
     // Test ft_strchr
+    print_separator("Testing ft_strchr");
     // Test ft_strrchr
+    print_separator("Testing ft_strrchr");
     // Test ft_strncmp
     print_separator("Testing ft_strncmp");
     struct {
@@ -164,7 +169,7 @@ int main()
         {"abcd", "abcd", 5, 0}            // Exact match with n larger than length
     };
 
-    for (int i = 0; i < sizeof(test_cases_strncmp) / sizeof(test_cases_strncmp[0]); i++) {
+    for (unsigned int i = 0; i < sizeof(test_cases_strncmp) / sizeof(test_cases_strncmp[0]); i++) {
         int expected = strncmp(test_cases_strncmp[i].s1, test_cases_strncmp[i].s2, test_cases_strncmp[i].n);
         int actual = ft_strncmp(test_cases_strncmp[i].s1, test_cases_strncmp[i].s2, test_cases_strncmp[i].n);
 
@@ -174,8 +179,11 @@ int main()
         print_result(expected == actual);
     }
     // Test ft_strnstr
+    print_separator("Testing ft_strnstr");
     // Test ft_atoi
+    print_separator("Testing ft_atoi");
     // Test ft_strdup
+    print_separator("Testing ft_strdup");
     // Test ft_strcmp
     print_separator("Testing ft_strcmp");
     char *test_cases_strcmp_s1[] = {"Hello", "World", "123", " ", "", "This is a test", "Another test"};

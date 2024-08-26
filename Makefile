@@ -4,6 +4,11 @@ NAME = libft.a
 # Compiler and flags
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+LIB_FLAGS = -I. -L. -lft
+
+# List of test files
+TEST_CFILE = test_libft.c
+EXEC_FILE = test_libft
 
 # List of source files
 SRC = $(wildcard ./Code/*.c)
@@ -24,6 +29,13 @@ $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo "Compiled $< into $@."
 
+# New version of make that will create the library and delete the object files
+# after the library is created
+lib_only: $(OBJ)
+	@ar rcs $(NAME) $(OBJ)
+	@rm -f $(OBJ)
+	@echo "Library $(NAME) created and Object files cleaned."
+
 # Clean the object files
 clean:
 	@rm -f $(OBJ)
@@ -37,4 +49,9 @@ fclean: clean
 # Recompile everything
 re: fclean all
 
-.PHONY: all clean fclean re
+# lib_only then execute this command : clear && gcc test_libft.c -I. -L. -lft -o test_libft && ./test_libft
+test: lib_only
+	@rm -f $(EXEC_FILE)
+	@clear && $(CC) $(CFLAGS) $(TEST_CFILE) $(LIB_FLAGS) -o $(EXEC_FILE) && ./$(EXEC_FILE)
+
+.PHONY: all lib_only clean fclean re
