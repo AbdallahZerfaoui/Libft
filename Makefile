@@ -50,8 +50,10 @@ fclean: clean
 re: fclean all
 
 # lib_only then execute this command : clear && gcc test_libft.c -I. -L. -lft -o test_libft && ./test_libft
-test: lib_only
+test: 
 	@rm -f $(EXEC_FILE)
 	@clear && $(CC) $(CFLAGS) $(TEST_CFILE) $(LIB_FLAGS) -o $(EXEC_FILE) && ./$(EXEC_FILE)
 
-.PHONY: all lib_only clean fclean re
+full_test: lib_only test
+
+.PHONY: all lib_only clean fclean re test full_test
