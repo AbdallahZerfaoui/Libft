@@ -32,7 +32,7 @@ Libft is a project aimed at recreating essential C standard library functions. T
 To use the library in your own projects, simply clone this repository and include the relevant files in your project.
 
 ```bash
-git clone https://github.com/your-username/libft.git
+git clone https://github.com/AbdallahZerfaoui/Libft.git
 cd libft
 ```
 ## Usage
