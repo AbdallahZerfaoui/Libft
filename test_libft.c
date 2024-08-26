@@ -134,14 +134,75 @@ int main()
     }
     // Test ft_strlcpy
     print_separator("Testing ft_strlcpy");
+    char dst1[20];
+    char dst2[20];
+    const char *src[] = {"Hello, World!", "This string is too long", "Short", 
+                        "Zero size", ""}; 
+    size_t result1, result2;
+
+    for (unsigned int i = 0; i < sizeof(src) / sizeof(src[0]); i++) {
+        result1 = ft_strlcpy(dst1, src[i], sizeof(dst1));
+        result2 = strlcpy(dst2, src[i], sizeof(dst2));
+        printf("Test %d: ft_strlcpy(\"%s\", \"%s\", %zu) == strlcpy(\"%s\", \"%s\", %zu) -> ", 
+               i + 1, "dst1", src[i], sizeof(dst1), "dst2", src[i], sizeof(dst2));
+        print_result(result1 == result2);
+    }
+
     // Test ft_strlcat
     print_separator("Testing ft_strlcat");
+
+    for (unsigned int i = 0; i < sizeof(src) / sizeof(src[0]); i++) {
+        result1 = ft_strlcat(dst1, src[i], sizeof(dst1));
+        result2 = strlcat(dst2, src[i], sizeof(dst2));
+        printf("Test %d: ft_strlcat(\"%s\", \"%s\", %zu) == strlcat(\"%s\", \"%s\", %zu) -> ", 
+               i + 1, "dst1", src[i], sizeof(dst1), "dst2", src[i], sizeof(dst2));
+        print_result(result1 == result2);
+    }
+
     // Test ft_toupper
     print_separator("Testing ft_toupper");
+    char test_cases_toupper[] = {'A', 'z', 'm', '1', '#', ' ', 0, -1, 'a', 'Z', 127, 128};
+    int num_tests_toupper = sizeof(test_cases_toupper) / sizeof(test_cases_toupper[0]);
+
+    for (int i = 0; i < num_tests_toupper; i++) {
+        int c = test_cases_toupper[i];
+        int actual = ft_toupper(c);
+        int expected = toupper(c);
+        
+        printf("Test %d: ft_toupper(%d) == toupper(%d) -> ", i + 1, c, c);
+        print_result(expected == actual);
+    }
+    
     // Test ft_tolower
     print_separator("Testing ft_tolower");
+    char test_cases_tolower[] = {'A', 'z', 'm', '1', '#', ' ', 0, -1, 'a', 'Z', 127, 128};
+    int num_tests_tolower = sizeof(test_cases_tolower) / sizeof(test_cases_tolower[0]);
+
+    for (int i = 0; i < num_tests_tolower; i++) {
+        char c = test_cases_tolower[i];
+        int actual = ft_tolower(c);
+        int expected = tolower(c);
+        
+        printf("Test %d: ft_tolower(%d) == tolower(%d) -> ", i + 1, c, c);
+        print_result(expected == actual);
+    }
+
     // Test ft_strchr
     print_separator("Testing ft_strchr");
+    char *test_cases_strchr_s[] = {"Hello", "World", "123", " ", "", "This is a test", "Another test"};
+    char test_cases_strchr_c[] = {'H', 'o', '3', ' ', '\0', 't', 'z'};
+    int num_tests_strchr = sizeof(test_cases_strchr_s) / sizeof(test_cases_strchr_s[0]);
+
+    for (int i = 0; i < num_tests_strchr; i++) {
+        char *s = test_cases_strchr_s[i];
+        char c = test_cases_strchr_c[i];
+        char *actual = ft_strchr(s, c);
+        char *expected = strchr(s, c);
+        
+        printf("Test %d: ft_strchr(\"%s\", '%c') == strchr(\"%s\", '%c') -> ", i + 1, s, c, s, c);
+        print_result(expected == actual);
+    }
+
     // Test ft_strrchr
     print_separator("Testing ft_strrchr");
     // Test ft_strncmp
@@ -196,8 +257,6 @@ int main()
         int actual = ft_strcmp(s1, s2);
         int expected = strcmp(s1, s2);
         
-        // printf("Test %d: ft_strcmp(%s, %s) -> ", i + 1, s1, s2);
-        // printf("Expected: %d, Actual: %d\n", expected, actual);
         printf("Test %d: ft_strcmp(%s, %s) == strcmp(%s, %s) -> ", i + 1, s1, s2, s1, s2);
         print_result(expected == actual);
     }

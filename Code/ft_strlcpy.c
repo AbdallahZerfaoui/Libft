@@ -3,7 +3,7 @@
 // The strlcpy() function copies up to size − 1 characters from the 
 // NUL-terminated string src to dst, NUL-terminating the result.
 
-size_t	ft_strlen(const char *s)
+static size_t	ft_strlen(const char *s)
 {
     size_t	size;
 
