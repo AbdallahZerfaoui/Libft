@@ -5,7 +5,7 @@
 // The function iterates over the string and applies the function to each character in the string. 
 // The function takes the index of the character and the character as arguments.
 // It creates a new string with the results of the function applied to each character.
-size_t	ft_strlen(const char *s)
+static size_t	ft_strlen(const char *s)
 {
     size_t	size;
 

@@ -4,14 +4,14 @@ NAME = libft.a
 # Compiler and flags
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-LIB_FLAGS = -I. -L. -lft
+LIB_FLAGS = -I./includes -L. -lft
 
 # List of test files
 TEST_CFILE = test_libft.c
 EXEC_FILE = test_libft
 
 # List of source files
-SRC = $(wildcard ./Code/*.c)
+SRC = $(wildcard ./src/*.c)
 
 # Object files (by replacing .c with .o)
 OBJ = $(SRC:.c=.o)
