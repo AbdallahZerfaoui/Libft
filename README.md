@@ -109,7 +109,7 @@ int main(void)
 Compile and run your tests:
 
 ````bash
-gcc main.c libft.a -o test_libft
+gcc test_libft.c libft.a -o test_libft
 ./test_libft
 ````
 For more thorough testing, consider using a unit testing framework like Criterion.
