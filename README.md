@@ -118,7 +118,7 @@ For more thorough testing, consider using a unit testing framework like Criterio
 ```bash
 libft/
 │
-├── Code/
+├── src/
 │   ├── ft_memset.c
 │   ├── ft_bzero.c
 │   ├── ft_memcpy.c
