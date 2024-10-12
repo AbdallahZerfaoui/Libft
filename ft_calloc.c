@@ -6,7 +6,7 @@
 /*   By: azerfaou <azerfaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 20:39:32 by azerfaou          #+#    #+#             */
-/*   Updated: 2024/10/07 20:40:06 by azerfaou         ###   ########.fr       */
+/*   Updated: 2024/10/12 12:57:50 by azerfaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	*ft_calloc(size_t nitems, size_t size)
 	ptr = malloc(total_size);
 	if (ptr == NULL)
 		return (NULL);
-	while (total_size--)
-		((unsigned char *)ptr)[total_size] = 0;
+	ft_bzero(ptr, total_size);
 	return (ptr);
 }

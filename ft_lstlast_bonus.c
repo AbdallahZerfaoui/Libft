@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azerfaou <azerfaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 20:47:08 by azerfaou          #+#    #+#             */
-/*   Updated: 2024/10/11 13:29:58 by azerfaou         ###   ########.fr       */
+/*   Created: 2024/10/08 13:03:45 by azerfaou          #+#    #+#             */
+/*   Updated: 2024/10/08 20:10:50 by azerfaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	putposnbr_fd(int n, int fd)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (n > 9)
-	{
-		putposnbr_fd(n / 10, fd);
-		putposnbr_fd(n % 10, fd);
-	}
-	else
-	{
-		n = n + '0';
-		write(fd, &n, 1);
-	}
-}
+	t_list	*current;
 
-void	ft_putnbr_fd(int n, int fd)
-{
-	if (n == INT_MIN)
+	if (lst == NULL)
+		return (NULL);
+	current = lst;
+	while (current->next != NULL)
 	{
-		write(fd, "-2147483648", 11);
-		return ;
+		current = current->next;
 	}
-	if (n < 0)
-	{
-		write(fd, "-", 1);
-		n = -n;
-	}
-	putposnbr_fd(n, fd);
+	return (current);
 }

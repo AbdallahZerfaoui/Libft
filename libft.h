@@ -6,7 +6,7 @@
 /*   By: azerfaou <azerfaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 13:36:19 by azerfaou          #+#    #+#             */
-/*   Updated: 2024/10/09 11:55:13 by azerfaou         ###   ########.fr       */
+/*   Updated: 2024/10/11 13:04:30 by azerfaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int					ft_atoi(const char *str);
 void				*ft_calloc(size_t nitems, size_t size);
 char				*ft_strdup(const char *s);
 
-// Supplementary functions (11)
+// Addictional functions (11)
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
@@ -63,28 +63,12 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
-// My extra functions
-char				*ft_strcpy(char *dst, const char *src);
-char				*ft_strncpy(char *destination, const char *source,
-						size_t n);
-int					ft_strcmp(const char *s1, const char *s2);
-char				*ft_strstr(const char *haystack, const char *needle);
-void				ft_putptr_fd(void *ptr, int fd);
-
-// Functions for ft_printf
-void				ft_putunbr_fd(unsigned int n, int fd);
-void				ft_puthex_fd(unsigned int n, int fd);
-void				ft_puthex_upper_fd(unsigned int n, int fd);
-void				ft_putptr_fd(void *ptr, int fd);
-
-// Bonus
+// Bonus (9)
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 int					ft_lstsize(t_list *lst);
 t_list				*ft_lstlast(t_list *lst);
-t_list				*ft_lstget_nth(t_list *lst, int n);
 void				ft_lstadd_back(t_list **lst, t_list *new);
-void				del(void *ptr);
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));

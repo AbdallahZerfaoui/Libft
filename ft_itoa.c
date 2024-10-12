@@ -6,13 +6,13 @@
 /*   By: azerfaou <azerfaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 20:46:07 by azerfaou          #+#    #+#             */
-/*   Updated: 2024/10/08 21:21:21 by azerfaou         ###   ########.fr       */
+/*   Updated: 2024/10/11 13:30:29 by azerfaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_num_digits(int num)
+static size_t	ft_num_digits(int num)
 {
 	size_t	nbr_digits;
 

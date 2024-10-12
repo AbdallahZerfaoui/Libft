@@ -4,15 +4,26 @@ NAME = libft.a
 # Compiler and flags
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-LIB_FLAGS = -I. -L. -lft
-
-# List of test files
-TEST_CFILE = main.c
-EXEC_FILE = test_libft.exe
 
 # List of source files
-SRC = $(wildcard ft_*.c)
-BONUS_SRC = $(wildcard ft_lst*.c)
+SRC = ft_atoi.c ft_bzero.c ft_calloc.c \
+      ft_isalnum.c ft_isalpha.c ft_isascii.c \
+      ft_isdigit.c ft_isprint.c ft_itoa.c \
+      ft_memchr.c ft_memcmp.c ft_memcpy.c \
+      ft_memmove.c ft_memset.c ft_putchar_fd.c \
+      ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c \
+      ft_split.c ft_strchr.c ft_strdup.c \
+      ft_striteri.c ft_strjoin.c ft_strlcat.c \
+      ft_strlcpy.c ft_strlen.c ft_strmapi.c \
+      ft_strncmp.c ft_strnstr.c ft_strrchr.c \
+      ft_strtrim.c ft_substr.c ft_tolower.c \
+      ft_toupper.c
+
+BONUS_SRC = ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
+            ft_lstclear_bonus.c ft_lstdelone_bonus.c \
+            ft_lstiter_bonus.c ft_lstlast_bonus.c ft_lstmap_bonus.c \
+            ft_lstnew_bonus.c ft_lstsize_bonus.c
+
 
 # Object files (by replacing .c with .o)
 OBJ = $(SRC:.c=.o)
@@ -31,17 +42,9 @@ $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo "Compiled $< into $@."
 
-# New version of make that will create the library and delete the object files
-# after the library is created
-lib_only: $(OBJ)
-	@$(AR) rcs $(NAME) $(OBJ)
-	@rm -f $(OBJ)
-	@echo "Library $(NAME) created and Object files cleaned."
-
 # Bonus rule to compile bonus files
 bonus: $(OBJ) $(BONUS_OBJ)
 	@ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)
-	@rm -f $(OBJ) $(BONUS_OBJ)
 	@echo "Bonus functions added to $(NAME)."
 
 # Clean the object files
@@ -52,17 +55,10 @@ clean:
 # Clean everything including the library
 fclean: clean
 	@rm -f $(NAME)
-	@rm -f *.exe *.out
 	@echo "Library $(NAME) removed."
 
 # Recompile everything
 re: fclean all
 
-# lib_only then execute this command : clear && gcc test_libft.c -I. -L. -lft -o test_libft && ./test_libft
-test: 
-	@rm -f $(EXEC_FILE)
-	@clear && $(CC) $(CFLAGS) $(TEST_CFILE) $(LIB_FLAGS) -o $(EXEC_FILE) && ./$(EXEC_FILE)
 
-full_test: lib_only test
-
-.PHONY: all lib_only bonus clean fclean re test full_test
+.PHONY: all bonus clean fclean re

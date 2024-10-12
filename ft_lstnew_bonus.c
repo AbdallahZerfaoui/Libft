@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azerfaou <azerfaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 20:47:08 by azerfaou          #+#    #+#             */
-/*   Updated: 2024/10/11 13:29:58 by azerfaou         ###   ########.fr       */
+/*   Created: 2024/10/08 12:50:28 by azerfaou          #+#    #+#             */
+/*   Updated: 2024/10/10 15:21:01 by azerfaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	putposnbr_fd(int n, int fd)
+/**
+ * malloc returns a void pointer but it works
+ * without casting in C but not in C++
+ */
+t_list	*ft_lstnew(void *content)
 {
-	if (n > 9)
-	{
-		putposnbr_fd(n / 10, fd);
-		putposnbr_fd(n % 10, fd);
-	}
-	else
-	{
-		n = n + '0';
-		write(fd, &n, 1);
-	}
-}
+	t_list	*head;
 
-void	ft_putnbr_fd(int n, int fd)
-{
-	if (n == INT_MIN)
-	{
-		write(fd, "-2147483648", 11);
-		return ;
-	}
-	if (n < 0)
-	{
-		write(fd, "-", 1);
-		n = -n;
-	}
-	putposnbr_fd(n, fd);
+	head = (t_list *)malloc(sizeof(t_list));
+	if (!head)
+		return (NULL);
+	head->content = content;
+	head->next = NULL;
+	return (head);
 }
