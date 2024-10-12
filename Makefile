@@ -4,24 +4,26 @@ NAME = libft.a
 # Compiler and flags
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-LIB_FLAGS = -I./includes -L. -lft
+LIB_FLAGS = -I. -L. -lft
 
 # List of test files
-TEST_CFILE = test_libft.c
-EXEC_FILE = test_libft
+TEST_CFILE = main.c
+EXEC_FILE = test_libft.exe
 
 # List of source files
-SRC = $(wildcard ./src/*.c)
+SRC = $(wildcard ft_*.c)
+BONUS_SRC = $(wildcard ft_lst*.c)
 
 # Object files (by replacing .c with .o)
 OBJ = $(SRC:.c=.o)
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
 # Default target
 all: $(NAME)
 
 # Rule to create the library
 $(NAME): $(OBJ)
-	@ar rcs $(NAME) $(OBJ)
+	@$(AR) rcs $(NAME) $(OBJ)
 	@echo "Library $(NAME) created."
 
 # Rule to compile .c files into .o files
@@ -32,18 +34,25 @@ $(NAME): $(OBJ)
 # New version of make that will create the library and delete the object files
 # after the library is created
 lib_only: $(OBJ)
-	@ar rcs $(NAME) $(OBJ)
+	@$(AR) rcs $(NAME) $(OBJ)
 	@rm -f $(OBJ)
 	@echo "Library $(NAME) created and Object files cleaned."
 
+# Bonus rule to compile bonus files
+bonus: $(OBJ) $(BONUS_OBJ)
+	@ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)
+	@rm -f $(OBJ) $(BONUS_OBJ)
+	@echo "Bonus functions added to $(NAME)."
+
 # Clean the object files
 clean:
-	@rm -f $(OBJ)
+	@rm -f $(OBJ) $(BONUS_OBJ)
 	@echo "Object files cleaned."
 
 # Clean everything including the library
 fclean: clean
 	@rm -f $(NAME)
+	@rm -f *.exe *.out
 	@echo "Library $(NAME) removed."
 
 # Recompile everything
@@ -56,4 +65,4 @@ test:
 
 full_test: lib_only test
 
-.PHONY: all lib_only clean fclean re test full_test
+.PHONY: all lib_only bonus clean fclean re test full_test
