@@ -43,8 +43,8 @@ $(NAME): $(OBJ)
 	@echo "Compiled $< into $@."
 
 # Bonus rule to compile bonus files
-bonus: $(OBJ) $(BONUS_OBJ)
-	@ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)
+bonus: $(BONUS_OBJ)
+	@$(AR) r $(NAME) $(BONUS_OBJ)
 	@echo "Bonus functions added to $(NAME)."
 
 # Clean the object files
@@ -59,5 +59,6 @@ fclean: clean
 
 # Recompile everything
 re: fclean all
+
 
 .PHONY: all bonus clean fclean re
